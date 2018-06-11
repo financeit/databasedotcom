@@ -336,6 +336,9 @@ module Databasedotcom
           yield(encoded_path)
         end
       end
+    rescue => e
+      Rollbar.error("TS-6701", path, parameters)
+      raise
     end
 
     def with_logging(encoded_path, options)
