@@ -337,7 +337,7 @@ module Databasedotcom
         end
       end
     rescue => e
-      Rollbar.error("TS-6701", path, parameters)
+      Rollbar.error(e, jira: "TS-6701", path: path, parameters)
       raise
     end
 
